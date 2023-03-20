@@ -37,6 +37,8 @@ class TransformerEmbedding(nn.Module):
 
         super(TransformerEmbedding, self).__init__()
         self.tok_emb = TokenEmbedding(vocab_size, d_model)
+        print("===========")
+        print(vocab_size)
         self.pos_emb = PostionalEncoding(d_model, max_len, device)
 
         # self.cat_tok_emb = TokenEmbedding(vocab_size, d_model - k)
