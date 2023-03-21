@@ -154,7 +154,9 @@ for k in k_list:
             # train_type = "1dot5_norm_first"
             # train_type = "1dot25_norm_first"
             # train_type = "new_pos"
-            train_type = "new_pos_linear"
+            # train_type = "new_pos_linear"
+            # train_type = "no_linear_qkv"
+            train_type = "no_linear_qkvhead"
             version = str((k, train_type))
             # if step >= 999:
             #     torch.save(

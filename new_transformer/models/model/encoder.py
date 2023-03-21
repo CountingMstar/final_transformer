@@ -46,7 +46,13 @@ class Encoder(nn.Module):
 
     def forward(self, x, s_mask):
         x = self.emb(x)
-        # print(c)
+
+        # The number of parameters
+        #####################
+        # model = self.layers
+        # num_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        # print(f"Number of parameters: {num_params}")
+        #####################
 
         for layer in self.layers:
             x = layer(x, s_mask)

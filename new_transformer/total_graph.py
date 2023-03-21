@@ -19,15 +19,17 @@ def read(name):
 
 versions = [512]
 types = [
-    "original",
-    "norm_first",
+    # "original",
+    # "norm_first",
     "linear",
     # "0dot5_norm_first",
     # "0dot75_norm_first",
     # "1dot5_norm_first",
     # "1dot25_norm_first",
-    "new_pos",
+    # "new_pos",
     "new_pos_linear",
+    "no_linear_qkv",
+    "no_linear_qkvhead",
 ]
 
 
@@ -53,7 +55,7 @@ def draw(mode):
                 # plt.plot(bleu, "b", label="bleu score")
                 plt.plot(bleu, label="bleu score" + version)
                 plt.legend(loc="lower right")
-                # plt.xlim([0, 200])  # X축의 범위: [xmin, xmax]
+                # plt.xlim([0, 500])  # X축의 범위: [xmin, xmax]
                 # plt.ylim([35, 45])  # Y축의 범위: [ymin, ymax]
 
     plt.xlabel("epoch")

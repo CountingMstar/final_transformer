@@ -26,7 +26,8 @@ version
 # train_type = "linear"
 # train_type = "double_norm_first"
 # train_type = "1dot5_norm_first"
-train_type = "new_pos"
+# train_type = "new_pos"
+train_type = "no_linear_qkv"
 
 for version in ver:
     version = str((version, train_type))
