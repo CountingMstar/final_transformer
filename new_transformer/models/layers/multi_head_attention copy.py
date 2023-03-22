@@ -7,8 +7,6 @@ from torch import nn
 
 from models.layers.scale_dot_product_attention import ScaleDotProductAttention
 
-from models.layers.layer_norm import LayerNorm
-
 
 class MultiHeadAttention(nn.Module):
     def __init__(self, d_model, n_head):
@@ -20,17 +18,15 @@ class MultiHeadAttention(nn.Module):
         self.w_v = nn.Linear(d_model, d_model)
         self.w_concat = nn.Linear(d_model, d_model)
 
-        # self.w_q1 = nn.Linear(d_model, d_model)
-        # self.w_k1 = nn.Linear(d_model, d_model)
-        # self.w_v1 = nn.Linear(d_model, d_model)
-        # self.w_concat1 = nn.Linear(d_model, d_model)
+        self.w_q1 = nn.Linear(d_model, d_model)
+        self.w_k1 = nn.Linear(d_model, d_model)
+        self.w_v1 = nn.Linear(d_model, d_model)
+        self.w_concat1 = nn.Linear(d_model, d_model)
 
-        # self.w_q2 = nn.Linear(d_model, d_model)
-        # self.w_k2 = nn.Linear(d_model, d_model)
-        # self.w_v2 = nn.Linear(d_model, d_model)
-        # self.w_concat2 = nn.Linear(d_model, d_model)
-
-        self.norm = LayerNorm(d_model=d_model)
+        self.w_q2 = nn.Linear(d_model, d_model)
+        self.w_k2 = nn.Linear(d_model, d_model)
+        self.w_v2 = nn.Linear(d_model, d_model)
+        self.w_concat2 = nn.Linear(d_model, d_model)
 
     def forward(self, q, k, v, mask=None):
         # print("===========")
@@ -39,7 +35,7 @@ class MultiHeadAttention(nn.Module):
         # print(v.shape)
 
         # 1. dot product with weight matrices
-        q, k, v = self.w_q(q), self.w_k(k), self.w_v(v)
+        # q, k, v = self.w_q(q), self.w_k(k), self.w_v(v)
         ##################
         # q = self.w_q(q)
         # q = self.w_q(q)
@@ -70,7 +66,7 @@ class MultiHeadAttention(nn.Module):
         out = self.concat(out)
         out = self.w_concat(out)
         ##################
-        # out = self.w_concat(out)
+        out = self.w_concat(out)
         ##################
 
         # 5. visualize attention map

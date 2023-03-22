@@ -156,7 +156,11 @@ for k in k_list:
             # train_type = "new_pos"
             # train_type = "new_pos_linear"
             # train_type = "no_linear_qkv"
-            train_type = "no_linear_qkvhead"
+            # train_type = "no_linear_qkvhead"
+            # train_type = "2_layers"
+            # train_type = "2_layers_no_linear_qkv"
+            # train_type = "encoder_decoer_norm_first"
+            train_type = "encoder_decoer_norm_first_res"
             version = str((k, train_type))
             # if step >= 999:
             #     torch.save(

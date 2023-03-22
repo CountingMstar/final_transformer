@@ -43,10 +43,6 @@ class DecoderLayer(nn.Module):
             _x = x
             x = self.norm2(x)
             x = self.enc_dec_attention(q=x, k=enc, v=enc, mask=s_mask)
-            print("============")
-            print(_x.shape)
-            print(enc.shape)
-            print(x.shape)
 
             # 4. add and norm
             x = self.dropout2(x)

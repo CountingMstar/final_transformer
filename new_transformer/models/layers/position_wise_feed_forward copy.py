@@ -12,7 +12,7 @@ class PositionwiseFeedForward(nn.Module):
         self.linear1 = nn.Linear(d_model, hidden)
         self.linear2 = nn.Linear(hidden, d_model)
 
-        # self.linear3 = nn.Linear(hidden, hidden)
+        self.linear3 = nn.Linear(hidden, hidden)
         # self.linear4 = nn.Linear(hidden, hidden)
         self.relu = nn.ReLU()
         self.dropout = nn.Dropout(p=drop_prob)
@@ -21,8 +21,8 @@ class PositionwiseFeedForward(nn.Module):
         x = self.linear1(x)
         x = self.relu(x)
         ####################
-        # x = self.linear3(x)
-        # x = self.relu(x)
+        x = self.linear3(x)
+        x = self.relu(x)
         # x = self.linear4(x)
         # x = self.relu(x)
         ####################

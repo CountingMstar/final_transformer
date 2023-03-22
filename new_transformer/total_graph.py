@@ -19,17 +19,21 @@ def read(name):
 
 versions = [512]
 types = [
-    # "original",
-    # "norm_first",
+    "original",
+    "norm_first",
     "linear",
     # "0dot5_norm_first",
     # "0dot75_norm_first",
     # "1dot5_norm_first",
     # "1dot25_norm_first",
     # "new_pos",
-    "new_pos_linear",
+    # "new_pos_linear",
     "no_linear_qkv",
-    "no_linear_qkvhead",
+    # "no_linear_qkvhead",
+    "2_layers",
+    "2_layers_no_linear_qkv",
+    # "encoder_decoer_norm_first",
+    "encoder_decoer_norm_first_res",
 ]
 
 
@@ -55,8 +59,8 @@ def draw(mode):
                 # plt.plot(bleu, "b", label="bleu score")
                 plt.plot(bleu, label="bleu score" + version)
                 plt.legend(loc="lower right")
-                # plt.xlim([0, 500])  # X축의 범위: [xmin, xmax]
-                # plt.ylim([35, 45])  # Y축의 범위: [ymin, ymax]
+                # plt.xlim([0, 10])  # X축의 범위: [xmin, xmax]
+                # plt.ylim([0, 20])  # Y축의 범위: [ymin, ymax]
 
     plt.xlabel("epoch")
     plt.ylabel(mode)
