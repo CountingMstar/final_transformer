@@ -28,14 +28,16 @@ class ScaleDotProductAttention(nn.Module):
 
         # 1. dot product Query with Key^T to compute similarity
         k_t = k.transpose(2, 3)  # transpose
-        # print("KT")
-        # print(k.shape)
+        print("KT")
+        print(q.shape)
+        print(k.shape)
+        print(v.shape)
         # print(k_t.shape)
         # print((q @ k_t).shape)
         # print(math.sqrt(d_tensor))
         score = (q @ k_t) / math.sqrt(d_tensor)  # scaled dot product
-        # print("*********")
-        # print(score.shape)
+        print("*********")
+        print(score.shape)
 
         # 2. apply masking (opt)
         if mask is not None:
@@ -43,8 +45,8 @@ class ScaleDotProductAttention(nn.Module):
 
         # 3. pass them softmax to make [0, 1] range
         score = self.softmax(score)
-        # print("*********2")
-        # print(score.shape)
+        print("*********2")
+        print(score.shape)
 
         # 4. multiply with Value
         # print("*********3")
